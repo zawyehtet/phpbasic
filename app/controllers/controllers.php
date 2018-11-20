@@ -1,24 +1,12 @@
 <?php 
 function _HomeController() {
+	_config_get("eee.eee");
+	die();
+	$students = _db_get_where("students");
+	die();
 	$data = [
-		'title'	=> 'Myanmar Links',
-		'students'	=> [
-			[
-				'id'	=> 1,
-				'name'	=> 'Aung Aung',
-				'address'	=> 'Hledan'
-			],
-			[
-				'id'	=> 2,
-				'name'	=> 'Bung Aung',
-				'address'	=> 'Hledan'
-			],
-			[
-				'id'	=> 3,
-				'name'	=> 'Cung Aung',
-				'address'	=> 'Hledan'
-			]
-		]
+		'title'			=> _config_get("app.app_name"),
+		'students'		=> _db_get_all("students")
 	];
 	_load_view("index", $data);
 }
@@ -34,4 +22,3 @@ function _TestController() {
 	];
 	_load_view("index", $data);
 }
- ?>
